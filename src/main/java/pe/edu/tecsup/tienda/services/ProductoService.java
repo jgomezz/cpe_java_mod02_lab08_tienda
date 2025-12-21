@@ -8,6 +8,8 @@ public interface ProductoService {
 
     List<Producto> obtenerProductos();
 
+	void registrar(Producto producto);
+
 	
 }
 

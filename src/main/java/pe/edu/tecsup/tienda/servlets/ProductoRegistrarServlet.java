@@ -78,7 +78,7 @@ public class ProductoRegistrarServlet extends HttpServlet {
 		
 		log.info("Producto ingresado -> " + producto);
 
-		//this.productoService.registrar(producto);
+		this.productoService.registrar(producto);
 		
 		response.sendRedirect(request.getContextPath() + "/ProductoListarServlet");
 

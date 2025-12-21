@@ -33,4 +33,12 @@ public class ProductoServiceImpl implements ProductoService {
 		
 	}
 
+
+	@Override
+	public void registrar(Producto producto) {
+		
+		this.productoRepository.registrar(producto);
+		
+	}
+
 }
