@@ -14,6 +14,8 @@ import pe.edu.tecsup.tienda.entities.Categoria;
 import pe.edu.tecsup.tienda.entities.Producto;
 import pe.edu.tecsup.tienda.services.CategoriaService;
 import pe.edu.tecsup.tienda.services.CategoriaServiceImpl;
+import pe.edu.tecsup.tienda.services.ProductoService;
+import pe.edu.tecsup.tienda.services.ProductoServiceImpl;
 
 /**
  * Servlet implementation class ProductoRegistrarServlet
@@ -27,12 +29,15 @@ public class ProductoRegistrarServlet extends HttpServlet {
 	
 	private CategoriaService categoriaService;
 
+	private ProductoService productoService;
+
     /**
      * @see HttpServlet#HttpServlet()
      */
     public ProductoRegistrarServlet() {
         super();
 		this.categoriaService = new CategoriaServiceImpl();
+		this.productoService = new ProductoServiceImpl();
     }
 
 	/**
@@ -73,6 +78,7 @@ public class ProductoRegistrarServlet extends HttpServlet {
 		
 		log.info("Producto ingresado -> " + producto);
 
+		//this.productoService.registrar(producto);
 		
 		response.sendRedirect(request.getContextPath() + "/ProductoListarServlet");
 
