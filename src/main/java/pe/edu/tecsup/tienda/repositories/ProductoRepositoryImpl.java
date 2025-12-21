@@ -150,4 +150,37 @@ public class ProductoRepositoryImpl implements ProductoRepository {
 		
 	}
 
+	@Override
+	public void eliminar(Integer id) {
+		
+		try {
+
+            // Conectarme a la Base de datos
+            Connection con = ConexionBD.obtenerConexion();
+
+            // Preparar la sentencia      
+            String sql= """
+            		
+                        DELETE FROM productos WHERE id=?
+            			
+                        """;
+            
+            PreparedStatement stmt= con.prepareStatement(sql);
+            //
+    		stmt.setInt(1, id);
+    		//
+    		stmt.executeUpdate();
+            
+            stmt.close();
+            con.close();
+
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+	}
+
 }

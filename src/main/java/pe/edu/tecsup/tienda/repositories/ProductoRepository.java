@@ -10,4 +10,6 @@ public interface ProductoRepository {
 
 	void registrar(Producto producto);
 
+	void eliminar(Integer id);
+
 }

@@ -41,4 +41,12 @@ public class ProductoServiceImpl implements ProductoService {
 		
 	}
 
+
+	@Override
+	public void eliminar(Integer id) {
+		
+		this.productoRepository.eliminar(id);
+		
+	}
+
 }
