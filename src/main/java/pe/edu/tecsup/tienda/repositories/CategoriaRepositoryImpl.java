@@ -42,14 +42,14 @@ public class CategoriaRepositoryImpl implements CategoriaRepository {
                 // Lee informacion de un registro de la tabla categorias
                 int id= rs.getInt("id");
                 String nombre = rs.getString("nombre");
-                String descripcion = rs.getString("descripcion");
+                //String descripcion = rs.getString("descripcion");
                 String orden = rs.getString("orden");
 
                 // Crea un objeto Categoria
                 Categoria categoria = new Categoria();
                 categoria.setId(id);
                 categoria.setNombre(nombre);
-                categoria.setDescripcion(descripcion);
+                //categoria.setDescripcion(descripcion);
                 categoria.setOrden(orden);
 
                 // Agrega el objeto a la lista
