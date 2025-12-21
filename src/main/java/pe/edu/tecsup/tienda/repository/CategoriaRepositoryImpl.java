@@ -1,4 +1,4 @@
-package pe.edu.tecsup.tienda.dao;
+package pe.edu.tecsup.tienda.repository;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -10,7 +10,7 @@ import java.util.List;
 import pe.edu.tecsup.tienda.entidad.Categoria;
 import pe.edu.tecsup.tienda.utils.ConexionBD;
 
-public class CategoriaDAOImpl implements CategoriaDAO {
+public class CategoriaRepositoryImpl implements CategoriaRepository {
 
     @Override
     public List<Categoria> obtenerCategorias() {
