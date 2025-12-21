@@ -1,0 +1,57 @@
+package pe.edu.tecsup.tienda.servlets;
+
+import java.io.IOException;
+import java.util.List;
+
+import jakarta.servlet.ServletException;
+import jakarta.servlet.annotation.WebServlet;
+import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
+import pe.edu.tecsup.tienda.entities.Categoria;
+import pe.edu.tecsup.tienda.services.CategoriaService;
+import pe.edu.tecsup.tienda.services.CategoriaServiceImpl;
+
+/**
+ * Servlet implementation class CategoriaListarServlet
+ */
+@WebServlet("/CategoriaListarServlet")
+public class CategoriaListarServlet extends HttpServlet {
+	
+	private static final long serialVersionUID = 1L;
+       
+	private CategoriaService categoriaService;
+	
+    /**
+     * @see HttpServlet#HttpServlet()
+     */
+    public CategoriaListarServlet() {
+        super();
+        this.categoriaService = new CategoriaServiceImpl();
+    }
+
+	/**
+	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+		// Obtener las categorias
+		List<Categoria> categorias
+			= this.categoriaService.obtenerCategorias();
+		
+		for(Categoria item : categorias) {
+			System.out.println(item.getNombre());
+		}
+		
+		response.getWriter().append("Served at: ").append(request.getContextPath());
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		// TODO Auto-generated method stub
+		doGet(request, response);
+	}
+
+}
