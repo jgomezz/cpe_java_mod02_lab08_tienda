@@ -87,8 +87,8 @@ public class ProductoRepositoryImpl implements ProductoRepository {
              stmt.close();
              con.close();
 
-         } catch (ClassNotFoundException e) {
-             throw new RuntimeException(e);
+//         } catch (ClassNotFoundException e) {
+//             throw new RuntimeException(e);
          } catch (SQLException e) {
              throw new RuntimeException(e);
          } catch (Exception e) {
@@ -139,8 +139,8 @@ public class ProductoRepositoryImpl implements ProductoRepository {
             stmt.close();
             con.close();
 
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (Exception e) {
@@ -174,8 +174,8 @@ public class ProductoRepositoryImpl implements ProductoRepository {
             stmt.close();
             con.close();
 
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
+//        } catch (ClassNotFoundException e) {
+//            throw new RuntimeException(e);
         } catch (SQLException e) {
             throw new RuntimeException(e);
         } catch (Exception e) {

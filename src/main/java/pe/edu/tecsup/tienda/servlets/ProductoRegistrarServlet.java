@@ -84,8 +84,11 @@ public class ProductoRegistrarServlet extends HttpServlet {
 		
 		// Procesar adjunto de imagen
 		Part part = request.getPart("imagen");
-		if(part.getSubmittedFileName() != null) {					
+		
+		if(part.getSubmittedFileName() != null) {	
+			
 			File filepath = new File(getServletContext().getRealPath("") + File.separator + "files");
+			
 			if (!filepath.exists()) filepath.mkdir();
 				
 			String filename = System.currentTimeMillis() + "-" + part.getSubmittedFileName();
@@ -102,6 +105,8 @@ public class ProductoRegistrarServlet extends HttpServlet {
 		log.info("Producto ingresado -> " + producto);
 
 		this.productoService.registrar(producto);
+		
+		request.getSession().setAttribute("success", "Registro guardado satisfactoriamente");
 		
 		response.sendRedirect(request.getContextPath() + "/ProductoListarServlet");
 
