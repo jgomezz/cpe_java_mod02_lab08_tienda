@@ -1,8 +1,8 @@
-package pe.edu.tecsup.tienda.repository;
+package pe.edu.tecsup.tienda.repositories;
 
 import java.util.List;
 
-import pe.edu.tecsup.tienda.entidad.Categoria;
+import pe.edu.tecsup.tienda.entities.Categoria;
 
 public interface CategoriaRepository {
 

@@ -1,4 +1,4 @@
-package pe.edu.tecsup.tienda.entidad;
+package pe.edu.tecsup.tienda.entities;
 
 public class Categoria {
 
