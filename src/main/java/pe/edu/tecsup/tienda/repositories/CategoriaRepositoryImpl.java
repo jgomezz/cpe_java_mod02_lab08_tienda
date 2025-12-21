@@ -9,12 +9,19 @@ import java.util.List;
 
 import pe.edu.tecsup.tienda.entities.Categoria;
 import pe.edu.tecsup.tienda.utils.ConexionBD;
+import org.apache.log4j.Logger;
 
 public class CategoriaRepositoryImpl implements CategoriaRepository {
 
+	private static final Logger log 
+		= Logger.getLogger(CategoriaRepositoryImpl.class);
+
+	
     @Override
     public List<Categoria> obtenerCategorias() {
 
+    	log.info("Llamada al repositorio");
+    	
         List<Categoria> categorias = new ArrayList<Categoria>();
 
         try {

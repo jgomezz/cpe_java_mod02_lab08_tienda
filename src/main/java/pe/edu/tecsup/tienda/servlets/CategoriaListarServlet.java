@@ -11,6 +11,7 @@ import jakarta.servlet.http.HttpServletResponse;
 import pe.edu.tecsup.tienda.entities.Categoria;
 import pe.edu.tecsup.tienda.services.CategoriaService;
 import pe.edu.tecsup.tienda.services.CategoriaServiceImpl;
+import org.apache.log4j.Logger;
 
 /**
  * Servlet implementation class CategoriaListarServlet
@@ -21,6 +22,9 @@ public class CategoriaListarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
 	private CategoriaService categoriaService;
+	
+	private static final Logger log 
+			= Logger.getLogger(CategoriaListarServlet.class);
 	
     /**
      * @see HttpServlet#HttpServlet()
@@ -35,12 +39,16 @@ public class CategoriaListarServlet extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
+    	log.info("Llamada al servlet");
+
 		// Obtener las categorias
 		List<Categoria> categorias
 			= this.categoriaService.obtenerCategorias();
 		
+    	log.info("Mostrando categorias ");
+
 		for(Categoria item : categorias) {
-			System.out.println(item.getNombre());
+			log.info(item.getNombre());
 		}
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());
