@@ -48,7 +48,7 @@ public class CategoriaListarServlet extends HttpServlet {
     	log.info("Mostrando categorias ");
 
 		for(Categoria item : categorias) {
-			log.info(item.getNombre());
+			log.info(item);
 		}
 		
 		response.getWriter().append("Served at: ").append(request.getContextPath());

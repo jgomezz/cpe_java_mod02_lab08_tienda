@@ -38,4 +38,12 @@ public class Categoria {
     public void setOrden(String orden) {
         this.orden = orden;
     }
+
+	@Override
+	public String toString() {
+		return "Categoria [id=" + id + ", nombre=" + nombre + ", descripcion=" + descripcion + ", orden=" + orden + "]";
+	}
+    
+    
+    
 }
