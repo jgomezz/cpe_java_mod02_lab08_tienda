@@ -49,4 +49,11 @@ public class ProductoServiceImpl implements ProductoService {
 		
 	}
 
+
+	@Override
+	public Producto obtener(int id) {
+		// TODO Auto-generated method stub
+		return this.productoRepository.obtener(id);
+	}
+
 }

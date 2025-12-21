@@ -12,4 +12,6 @@ public interface ProductoRepository {
 
 	void eliminar(Integer id);
 
+	Producto obtener(int id);
+
 }

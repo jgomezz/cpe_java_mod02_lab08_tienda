@@ -12,6 +12,8 @@ public interface ProductoService {
 
 	void eliminar(Integer id);
 
+	Producto obtener(int id);
+
 	
 }
 
