@@ -51,9 +51,13 @@ public class ProductoListarServlet extends HttpServlet {
 		for(Producto item : productos) {
 			log.info(item);
 		}
-		
-		
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+
+		// Graba en el request los productos
+		request.setAttribute("productos", productos);
+
+		request.getRequestDispatcher("/WEB-INF/jsp/producto/listar.jsp")
+			   .forward(request, response);
+
 	}
 
 	/**
