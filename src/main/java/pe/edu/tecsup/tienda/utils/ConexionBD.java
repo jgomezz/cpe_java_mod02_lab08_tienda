@@ -6,7 +6,7 @@ import java.sql.DriverManager;
 /**
  * 
  */
-public class ConexionDB {
+public class ConexionBD {
 	
 	final static String URL = "jdbc:mariadb://localhost/tienda";
     final static String USER = "root";
