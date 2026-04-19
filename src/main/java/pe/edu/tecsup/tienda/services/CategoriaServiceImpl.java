@@ -13,18 +13,9 @@ public class CategoriaServiceImpl implements CategoriaService {
 	private static final Logger log 
 		= Logger.getLogger(CategoriaServiceImpl.class);
 	
-	
-	/**
-	 * 
-	 */
 	private CategoriaRepository categoriaRepository;
-	
-	
-	/**
-	 * 
-	 */
-	public CategoriaServiceImpl() {
 		
+	public CategoriaServiceImpl() {	
 		this.categoriaRepository = new CategoriaRepositoryImpl();
 	}
 	
