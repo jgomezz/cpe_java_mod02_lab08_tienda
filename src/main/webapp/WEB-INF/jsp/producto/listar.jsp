@@ -46,7 +46,10 @@
 	                        <td><%=producto.getNombre() %></td>
 	                        <td><%=producto.getCategoria().getNombre() %></td>
 	                        <td><%=producto.getPrecio() %></td>
-	                        <td><img src="" alt=""></td>
+	                        <td>
+	                        	<img src="<%=request.getContextPath()%>/files/<%=producto.getImagen_nombre()%>" alt="" height="30">
+  
+	                        </td>
 	                        <td class="text-right">
 	                            
 	                            <a href="<%=request.getContextPath()%>/ProductoMostrarServlet?id=<%=producto.getId() %>" 
