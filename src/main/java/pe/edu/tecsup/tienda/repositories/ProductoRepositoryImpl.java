@@ -33,7 +33,23 @@ public class ProductoRepositoryImpl implements ProductoRepository {
             // Preparar la sentencia
             String sql= 
             		"""
-                    // TODO   
+                             SELECT p.id, 
+                                    p.categorias_id, 
+             		                c.nombre AS categorias_nombre, 
+             		                p.nombre, 
+             		                p.descripcion, 
+             		                p.precio, 
+             		                p.stock, 
+             		                p.imagen_nombre, 
+             		                p.imagen_tipo, 
+             		                p.imagen_tamanio, 
+             		                p.creado, 
+             		                p.estado 
+							 FROM productos p 
+							 INNER JOIN categorias c 
+							       ON c.id=p.categorias_id 
+							 WHERE estado = 1  
+							 ORDER BY id 
                         
                     """;
             PreparedStatement stmt= con.prepareStatement(sql);
@@ -43,11 +59,32 @@ public class ProductoRepositoryImpl implements ProductoRepository {
             while(rs.next()) {
 
                 // Lee informacion de un registro de la tabla productos
-                
+ 
+            	// Producto
             	Producto producto = new Producto();
+ 
+            	producto.setId(rs.getInt("id"));
+            	producto.setNombre(rs.getString("nombre"));
+     			producto.setDescripcion(rs.getString("descripcion"));
+     			producto.setPrecio(rs.getDouble("precio"));
+     			if(rs.wasNull()) 
+     				producto.setPrecio(null);
+     			producto.setStock(rs.getInt("stock"));
+     			producto.setImagen_nombre(rs.getString("imagen_nombre"));
+     			producto.setImagen_tipo(rs.getString("imagen_tipo"));
+     			producto.setImagen_tamanio(rs.getLong("imagen_tamanio"));
+     			if(rs.wasNull()) 
+     				producto.setImagen_tamanio(null);
+     			producto.setEstado(rs.getInt("estado"));
             	
-            	// TODO
-
+     			// Informacion de la categoria del producto
+     			Categoria categoria = new Categoria();
+     			categoria.setId(rs.getInt("categorias_id"));
+     			categoria.setNombre(rs.getString("categorias_nombre"));
+     		
+     			// Agregar la Categoria asociada al producto
+     			producto.setCategoria(categoria);
+     			
                 // Agrega el objeto a la lista
             	productos.add(producto);
             }
