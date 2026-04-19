@@ -6,10 +6,11 @@ import pe.edu.tecsup.tienda.entities.Producto;
 
 public interface ProductoRepository {
 
-	
 	List<Producto> obtenerProductos();
 
 	void registrar(Producto producto);
+
+	void eliminar(Integer idProd);
 	
 	
 }

@@ -42,5 +42,12 @@ public class ProductoServiceImpl implements ProductoService {
 		this.productoRepository.registrar(producto);
 		
 	}
+
+	@Override
+	public void eliminar(Integer idProd) {
+
+		this.productoRepository.eliminar(idProd);
+
+	}
 	
 }

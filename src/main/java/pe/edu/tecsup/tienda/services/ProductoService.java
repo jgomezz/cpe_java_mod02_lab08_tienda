@@ -10,5 +10,7 @@ public interface ProductoService {
 
 	void registrar(Producto producto);
 
+	void eliminar(Integer idProd);
+
 	
 }
