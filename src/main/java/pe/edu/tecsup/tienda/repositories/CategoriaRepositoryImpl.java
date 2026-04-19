@@ -24,7 +24,7 @@ public class CategoriaRepositoryImpl
 	
 	
 	@Override
-	public List<Categoria> obtenerCategoria() {
+	public List<Categoria> obtenerCategorias() {
 		
 		log.info("Llamada al repositorio");
     	

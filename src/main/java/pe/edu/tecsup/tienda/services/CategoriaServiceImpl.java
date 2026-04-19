@@ -26,7 +26,7 @@ public class CategoriaServiceImpl implements CategoriaService {
 		log.info("Llamada al servicio obtenerCategorias()...! ");
 		
 		List<Categoria> categorias 
-			= this.categoriaRepository.obtenerCategoria();
+			= this.categoriaRepository.obtenerCategorias();
 	
 		return categorias;
 	

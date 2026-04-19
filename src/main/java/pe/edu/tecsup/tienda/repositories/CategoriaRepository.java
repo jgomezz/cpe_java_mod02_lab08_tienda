@@ -9,5 +9,5 @@ import pe.edu.tecsup.tienda.entities.Categoria;
  */
 public interface CategoriaRepository {
 
-	List<Categoria> obtenerCategoria(); 
+	List<Categoria> obtenerCategorias(); 
 }
