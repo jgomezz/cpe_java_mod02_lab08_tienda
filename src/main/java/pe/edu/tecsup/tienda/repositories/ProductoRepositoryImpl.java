@@ -117,9 +117,38 @@ public class ProductoRepositoryImpl implements ProductoRepository {
             // Conectarme a la Base de datos
             Connection con = ConexionBD.obtenerConexion();
 
-            // TODO
-            
-            
+            // Preparar la sentencia
+            String sql= 
+            		"""
+		                INSERT INTO productos 
+		                              ( categorias_id, 
+					                    nombre, 
+					                    descripcion, 
+					                    precio, 
+					                    stock, 
+					                    imagen_nombre, 
+					                    imagen_tipo, 
+					                    imagen_tamanio )
+            			VALUES (?, ?, ?, ?, ?, ?, ?, ?)            
+                    """;
+            PreparedStatement stmt= con.prepareStatement(sql);
+            //
+            stmt.setInt(1, producto.getCategorias_id());
+    		stmt.setString(2, producto.getNombre());
+    		stmt.setString(3, producto.getDescripcion());
+    		stmt.setDouble(4, producto.getPrecio());
+    		stmt.setInt(5, producto.getStock());
+    		stmt.setString(6, producto.getImagen_nombre());
+    		stmt.setString(7, producto.getImagen_tipo());
+    		stmt.setObject(8, producto.getImagen_tamanio());
+    		
+            // Graba en la tabla productos
+    		stmt.executeUpdate();
+    		
+    		
+    		// Cerra el statement
+    		stmt.close();
+    		
             // Cerrar conexion a base de datos
             con.close();
             
