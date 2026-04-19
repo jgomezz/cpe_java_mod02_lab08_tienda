@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
+<%@ page import="pe.edu.tecsup.tienda.entities.Categoria" %>
+<%@ page import="java.util.List" %>
+
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +14,7 @@
 
 	<%@include file="/WEB-INF/jsp/includes/navbar.jsp" %>
 
-	<% // List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias"); %>
+	<% List<Categoria> categorias = (List<Categoria>) request.getAttribute("categorias"); %>
 	
 	<div class="container-fluid pt-3">
             
@@ -28,17 +33,18 @@
 	                    <input type="text" name="nombre" id="nombre" class="form-control" maxlength="100" required>
 	                </div>
 	     
-	     			<%--
 	                <div class="form-group">
 	                    <label for="categorias_id">Categoría</label>
 	                    <select name="categorias_id" id="categorias_id" class="form-control" required>
+	                    
 	                        <option value="" selected disabled>Seleccione un valor</option>
+	                        
 	                        <% for(Categoria categoria : categorias) { %>
 	                        <option value="<%=categoria.getId()%>"><%=categoria.getNombre()%></option>
-	                        <% } %>
+	                        <% } // end for %>
+	                    
 	                    </select>
 	                </div>
-	                 --%>
 	                
 	                <div class="form-group">
 	                    <label for="precio">Precio</label>

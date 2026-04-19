@@ -5,10 +5,14 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import pe.edu.tecsup.tienda.entities.Categoria;
+import pe.edu.tecsup.tienda.services.CategoriaService;
+import pe.edu.tecsup.tienda.services.CategoriaServiceImpl;
 import pe.edu.tecsup.tienda.services.ProductoService;
 import pe.edu.tecsup.tienda.services.ProductoServiceImpl;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.apache.log4j.Logger;
 
@@ -25,12 +29,15 @@ public class ProductoRegistrarServlet extends HttpServlet {
 
 	private ProductoService productoService;
 	
+	private CategoriaService categoriaService;
+	
     /**
      * @see HttpServlet#HttpServlet()
      */
     public ProductoRegistrarServlet() {
         super();
         this.productoService = new ProductoServiceImpl();
+        this.categoriaService = new CategoriaServiceImpl();
     }
 
 	/**
@@ -40,16 +47,19 @@ public class ProductoRegistrarServlet extends HttpServlet {
 	 * 
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-	
+		
 		log.info("Cargando formulario de registro de producto");
 		
+		// Obtener las categorias
+		List<Categoria> cats = this.categoriaService.obtenerCategorias();
+		
+		// Guarda las categorias en el request
+		request.setAttribute("categorias", cats);
 		
 		// Redireccionar al JSP registrar 
 		request.getRequestDispatcher("/WEB-INF/jsp/producto/registrar.jsp")
 			   .forward(request, response);
-
-	
+		
 	}
 
 	/**
