@@ -1,10 +1,16 @@
 package pe.edu.tecsup.tienda.services;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
+import pe.edu.tecsup.tienda.entities.Producto;
 import pe.edu.tecsup.tienda.repositories.ProductoRepository;
 import pe.edu.tecsup.tienda.repositories.ProductoRepositoryImpl;
 
+/**
+ * Capa de Negocios
+ */
 public class ProductoServiceImpl implements ProductoService {
 
 	private static final Logger log 
@@ -15,6 +21,19 @@ public class ProductoServiceImpl implements ProductoService {
 	public ProductoServiceImpl() {
 		
 		this.productoRepository = new ProductoRepositoryImpl();
+	}
+
+	@Override
+	public List<Producto> obtenerProductos() {
+	
+		log.info("Obtiendo los productos desde el servicio");
+		
+		List<Producto> productos 
+			= this.productoRepository.obtenerProductos();
+		
+		return productos;
+	
+	
 	}
 	
 }
