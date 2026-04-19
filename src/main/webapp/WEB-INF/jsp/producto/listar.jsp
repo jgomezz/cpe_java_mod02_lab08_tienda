@@ -9,7 +9,6 @@
 <html>
 <head>
 	<%@include file="/WEB-INF/jsp/includes/head.jsp" %>
-	
 </head>
 <body>
 
@@ -50,11 +49,11 @@
 	                        <td><img src="" alt=""></td>
 	                        <td class="text-right">
 	                            
-	                            <a href="#" 
+	                            <a href="<%=request.getContextPath()%>/ProductoMostrarServlet?id=<%=producto.getId() %>" 
 	                               class="btn btn-info btn-sm">
 	                                 <i class="fa fa-eye"></i> Mostrar</a>
 	                            
-	                            <a href="#" 
+	                            <a href="<%=request.getContextPath()%>/ProductoEditarServlet?id=<%=producto.getId() %>" 
 	                               class="btn btn-warning btn-sm">
 	                            	 <i class="fa fa-edit"></i> Editar</a>
 	                            
