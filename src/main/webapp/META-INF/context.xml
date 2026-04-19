@@ -8,7 +8,7 @@
 		maxIdle="30"
 		maxWait="10000"
 		username="root"
-		password="root"
+		password=""
 		driverClassName="org.mariadb.jdbc.Driver"
 		url="jdbc:mariadb://localhost/tienda" />
 </Context>
