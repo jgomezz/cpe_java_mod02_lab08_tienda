@@ -105,4 +105,32 @@ public class ProductoRepositoryImpl implements ProductoRepository {
 		return productos;
 	}
 
+
+	@Override
+	public void registrar(Producto producto) {
+
+		log.info("Grabando producto en base de datos");
+    	
+		
+        try {
+
+            // Conectarme a la Base de datos
+            Connection con = ConexionBD.obtenerConexion();
+
+            // TODO
+            
+            
+            // Cerrar conexion a base de datos
+            con.close();
+            
+        } catch (ClassNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }     
+		
+	}
+
 }
