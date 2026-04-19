@@ -5,7 +5,6 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import pe.edu.tecsup.tienda.entities.Categoria;
 import pe.edu.tecsup.tienda.entities.Producto;
 import pe.edu.tecsup.tienda.services.ProductoService;
 import pe.edu.tecsup.tienda.services.ProductoServiceImpl;
@@ -45,16 +44,24 @@ public class ProductoListarServlet extends HttpServlet {
     	log.info("Llamada al servlet de Productos");
 
 		// Obtener los productos
-		List<Producto> productos
+		List<Producto> prods
 			= this.productoService.obtenerProductos();
 		
     	log.info("Mostrando productos ");
 
-		for(Producto item : productos) {
+		for(Producto item : prods) {
 			log.info(item);
 		}
-				
-		response.getWriter().append("Served at: ").append(request.getContextPath());
+			
+		
+		// Grabar el listado de productos en el request
+		request.setAttribute("productos", prods);
+		
+	
+		// Redireccionar al JSP listar 
+		request.getRequestDispatcher("/WEB-INF/jsp/producto/listar.jsp")
+			   .forward(request, response);
+	
 	}
 
 	/**
