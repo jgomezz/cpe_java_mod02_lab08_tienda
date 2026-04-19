@@ -12,5 +12,7 @@ public interface ProductoService {
 
 	void eliminar(Integer idProd);
 
+	Producto obtener(int id);
+
 	
 }

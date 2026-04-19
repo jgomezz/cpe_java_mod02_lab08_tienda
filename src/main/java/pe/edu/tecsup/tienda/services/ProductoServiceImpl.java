@@ -49,5 +49,11 @@ public class ProductoServiceImpl implements ProductoService {
 		this.productoRepository.eliminar(idProd);
 
 	}
+
+	@Override
+	public Producto obtener(int id) {
+
+		return this.productoRepository.obtener(id);
+	}
 	
 }
