@@ -8,19 +8,15 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
+	<%@include file="/WEB-INF/jsp/includes/head.jsp" %>
+	
 </head>
 <body>
+
+	<%@include file="/WEB-INF/jsp/includes/navbar.jsp" %>
 	
 	<%
-	
 		List<Producto> productos = (List<Producto>)request.getAttribute("productos");
-	
-		//for(Producto item : productos) {
-		//	out.println(item);
-		//}
-	
 	%>
 	
 	<div class="container-fluid pt-3">
