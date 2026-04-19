@@ -4,6 +4,9 @@
 <%@ page import="pe.edu.tecsup.tienda.entities.Categoria" %>
 <%@ page import="java.util.List" %>
 
+<%@ taglib uri="jakarta.tags.core" prefix="c" %>
+<%@ taglib uri="jakarta.tags.functions" prefix="fn" %>
+<%@ taglib uri="jakarta.tags.fmt" prefix="fmt" %>
 
 <!DOCTYPE html>
 <html>
@@ -39,9 +42,11 @@
 	                    
 	                        <option value="" selected disabled>Seleccione un valor</option>
 	                        
-	                        <% for(Categoria categoria : categorias) { %>
-	                        <option value="<%=categoria.getId()%>"><%=categoria.getNombre()%></option>
-	                        <% } // end for %>
+	                    
+	                    	<c:forEach items="${categorias}" var="categoria">
+	                        	<option value="<c:out value="${categoria.id}"/>"><c:out value="${categoria.nombre}"/></option>
+	                        </c:forEach>
+	                    
 	                    
 	                    </select>
 	                </div>
